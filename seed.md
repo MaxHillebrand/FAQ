@@ -31,7 +31,7 @@ By [6102bitcoin](https://twitter.com/6102bitcoin)
 
 ### Introduction
 
-Great - you have decided to control your bitcoin directly instead of using a custodial service like an exchange. This is a very wise move - exchanges fall into only two categories; those which have been hacked and those which will be hacked.
+Great - you have decided to control your bitcoin directly instead of using a custodial service like an exchange. This is a very wise move - exchanges fall into only two categories; those which have already been hacked and those which will be hacked in #twoweeks.
 
 By holding your own keys, you (and only you) are able to spend your bitcoin. You should take time to read this FAQ in order to understand the common errors & mistakes, and to learn the best practice in seed management. 
 
@@ -42,11 +42,11 @@ When it comes to bitcoin seed descriptions, words are often confused and used in
 | Word | Definition | Other Names |
 | ---- | ---- | ---- |
 | [**Private key**](https://en.bitcoin.it/wiki/Private_key) | A secret 256 bit number you use to spend bitcoin| secret key | 
-| **Mnemonic** | A list of words in a specific order which can be used to generate a bitcoin private key | seed phrase / see words |
-| [**Seed**](https://en.bitcoin.it/wiki/Seed_phrase) | A list of words in a specific order which can be used to generate a bitcoin private key (may or may not include a 'passphrase') | seed phrase / see words |
-| **Non-Extended Seed** | 12/24 Words (Just the Mnemonic) | Seed Words | 
-| **Extended Seed** | 13/25 Words: Mnemonic (12/24 words) + Passphrase (1 word)) | | 
-| **Backup** | A complete set of information from which your bitcoin can be recovered (i.e. your seed)  | |
+| [**Mnemonic**](https://en.bitcoin.it/wiki/Seed_phrase) | A list of words in a specific order which can be used to generate a bitcoin private key | seed phrase / seed words |
+| [**Seed**](https://bitcoin.org/en/glossary/hd-wallet-seed) | A potentially short value that is used to generted the master private key. | seed / secret |
+| **Non-Extended Mnemonic** | 12/24 Words (Just the Mnemonic) | Seed Words | 
+| **Extended Mnemonic** | 13/25 Words: Mnemonic (12/24 words) + Passphrase (1 word)) | | 
+| **Backup** | A complete set of information from which your bitcoin can be recovered (i.e. your seed, master private key, used derivation paths)  | |
 | **Encrypted Backup** | Backup encrypted with a password (not to be confused with a passphrase) | |
 
 ### What is a HD Wallet?
@@ -57,13 +57,13 @@ With a HD wallet the bitcoin private key (which is determined using your seed) i
 
 Your bitcoin seed is all the information required to recover your bitcoin private keys. Typically this is presented to you by your wallet as a mnemonic - a series of either 12 or 24 words from [this list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt) which can be used to generate your private keys following [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#). 
 
-Many wallets will simply present you the mnemonic calling it your 'seed' or your 'seed words'. 
+Many wallets will simply present you the mnemonic calling it your 'private keys' your 'seed words'. 
 
 All seeds generated using BIP39 actually consist of the mnemonic + a passphrase.
 
 More secure wallets will give you the option to set a passphrase (not to be confused with a password). 
 
-Anyone with access to your seed can spend your coins. 
+Anyone with access to your seed and passphrase can spend your coins. 
 As such it is imperative that you store copies of your seed securely. 
 
 # 2) Creating your Seed
@@ -78,7 +78,7 @@ For this reason make sure that you backup your seed somewhere that is private an
 
 ### All seeds are not created equal
 
-Suppose you have a computer riddled with malware and viruses and you download some bitcoin wallet software and view the seed. This seed is likely insecure. The viruses/malware may be taking screenshots of your computer at regular intervals and sending this data to the creator of the virus/malware. 
+Suppose you have a computer riddled with malware and viruses and you download some bitcoin wallet software and view the mnemonic. This mnemonic is likely insecure. The viruses/malware may be taking screenshots of your computer at regular intervals and sending this data to the creator of the virus/malware. 
 If you can see your seed on screen, then potentially so can the hacker.
 
 For this reason, when non-trivial amounts of bitcoin it is crucial that you carefully control the environment in which the seed is generated. The easiest way for non-technical people to do this is to buy a 'Hardware Wallet'. These devices store all the 'secret information' required to access your bitcoin on the dedicated hardware device so that it doesn't matter if your computer has viruses/malware. 
@@ -88,28 +88,28 @@ That said, some hardware wallets are better than others so make sure that you ne
 ### Does the order of the words matter?
 Yes! The order of the words does matter. You must store your seed in such a way that the order of the words is clear and unambiguous. 
 
-### How do I get my seed?
+### How do I get my mnemonic?
 
 This will depend on the bitcoin wallet that you are using. Most have a 'backup seed' option visible in the settings menu which can be used at any time, though some only allow seed backups when the wallet is initialised. 
 
 It is important to note that it is generally insecure to create your own seed (i.e. a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet)). 
 
-### Should I check my seed?
+### Should I check my mnemonic?
 
 You should definitely check your backup as part of your process for backing up. Failure to do so could lead to you losing your bitcoin - don't risk it.
 
-# 3) Storing your Seed
+# 3) Storing your Mnemonic
 
-### Why should I bother storing my seed, I only have a small amount of bitcoin.
+### Why should I bother storing my mnemonic, I only have a small amount of bitcoin.
 
-The value of bitcoin could increase substantially and you may one day regret not backing up your seed. You should **always** back up your seed. It is good practice to regularly review your seed management and consider how effective your chosen solution is.
+The value of bitcoin could increase substantially and you may one day regret not backing up your seed. You should **always** back up your seed with a mnemonic. It is good practice to regularly review your seed management and consider how effective your chosen solution is.
 
 ### Should I have multiple (redundant) backups of my seed?
 
 Yes. For the reasons explained below you should have multiple redundant backups of your seed.
 
 ### How can I store my seed?
-Initially let us consider the case where you store a single unencrypted seed (12 or 24 words). 
+Initially let us consider the case where you store a single unencrypted mnemonic (12 or 24 words). 
 
 | Method  						   	|----          				| Digital Theft Resistance 	| Physical Theft Resistance 		| Durability 						|
 | ------    					    | ---- 				    		| -------------------------	| ------------------------------|	---------------				|
@@ -130,7 +130,7 @@ Initially let us consider the case where you store a single unencrypted seed (12
 
 *[2] Often referred  to as a [Brain Wallet](https://en.bitcoin.it/wiki/Brainwallet) - Not to be confused for a wallet which you generate the mnemonic using your brain (i.e. sentence from a book) a Brain Wallet is a wallet for which you have memorised a mnemonic which was generated securely using a source of entropy.*
 
-There are three methods that are both Resistant to Theft and Durable;
+There are three methods that are both durable and resistant to theft;
 - Handwritten Paper Note in a Bank Deposit Box
 - Stamped Metal Sheet in a Bank Deposit Box
 - Stamped Metal Sheet Buried Somewhere
@@ -150,7 +150,7 @@ But with an **unencrypted seed**, each additional backup is an additional risk, 
 
 ### Can I 'encrypt' my seed so that all is not lost if someone finds my mnemonic?
 
-Yes, you can encrypt your seed by one of two methods:
+Yes, you can encrypt your mnemonic by one of two methods:
 
 #### 1) Use a passphrase alongside your mnemonic following [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#from-mnemonic-to-seed)
 
@@ -172,7 +172,6 @@ You use either Physical or Digital Encryption Tools;
 If you do decide to use a paper backup:
 - Use waterproof ink & paper
 - Write on a hard surface so you don't indent the paper below
-- Consider labelling your seed discreetly. Something labelled 'BITCOIN SEED' is more likely to be swept (stolen) than if you label it 'COOKIE RECEPIE', though it may be easy to forget that you did this. 
 
 Learn More: [Here](https://www.quora.com/How-do-I-maintain-a-paper-notebook-that-can-remain-for-years) and [Here](https://www.quora.com/If-I-write-with-a-pencil-on-my-notebook-will-the-writing-last-for-a-long-time-say-50-years-or-will-it-just-fade-away-gradually)
 
@@ -187,7 +186,7 @@ This reduces the cryptographic security of your backup (it is far easier to brut
 
 That said, the thief would have to know what the 6 words are and either spend time cracking the seed themselves or sell the seed to someone who would have no way to know the bitcoin they could steal before cracking the seed (so may be unwilling to pay for the first/last 6 words). 
 
-It is better to use [shamir secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the seed into 2 secrets, this way each piece of information is useless in isolation, and it is impossible to brute force the private key. The secrets can be recombined to recover the seed. You can also add redundancy, requiring say 2 of 3 of the secrets, or 3 of 5 (or any N of M). This said, there are currently no easy to use tools to split a seed using shamirs secret sharing that I have tried and can recommend - please let me know ([@6102bitcoin](https://twitter.com/6102bitcoin)) if you can recommend any.
+It is much better to use [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the seed into 2 secrets, this way each piece of information is useless in isolation, and it is impossible to brute force the private key. The secrets can be recombined to recover the seed. You can also add redundancy, requiring say 2 of 3 of the secrets, or 3 of 5 (or any N of M). [Trezor](https://trezor.io) are very close to a release of their own implementation of Shamir's secret sharing, [SLIP 39](https://github.com/satoshilabs/slips/blob/master/slip-0039.md).
 
 # 4) Using your seed
 
